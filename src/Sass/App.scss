@@ -1,0 +1,80 @@
+@import './colors.scss';
+
+@function get-width() {
+    @return calc(100vw - 20px)
+}
+
+@function dark-color($d) {
+    @if d {
+        @return $dark-green;
+    }
+    @return $light-green
+}
+
+@function safe-font($size) {
+    @if $size < 1 {
+        @error "font too small"
+    }
+    @return $size
+}
+
+@mixin blue-text {    
+    color: blue;
+}
+
+p {
+    color: dark-color(false)
+    
+    //flow control
+}
+
+.title {
+    .title-text {
+        color: $headerColor;
+        &:hover {
+            color: $myColor;
+        }
+    
+    }
+
+}
+
+
+.paragraph {
+    @include blue-text;
+    margin: auto;
+    width: get-width();
+    font-size: safe-font(12);
+}
+
+@mixin banner-style{
+    position: relative;
+    height: 30vh;
+    margin: 2em 5em 2em 5em;
+}
+
+.banner-img{
+    @include banner-style;
+}
+
+@mixin list-styling{
+    list-style: none;
+    margin: 1em;
+    padding: 0.5em;
+    color: $myBlack
+}
+
+.list{
+    @include list-styling;
+    background-color: $coolColor;
+    color: $myBlack
+}
+
+a:link{
+    @include list-styling
+}
+
+@mixin my-spacing{
+    padding: 0.2em;
+    margin: 0.5em;
+}
