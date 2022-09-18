@@ -13,7 +13,7 @@ p {
   color: blue;
   margin: auto;
   width: calc(100vw - 20px);
-  font-size: 12;
+  font-size: safe-font(12);
 }
 
 .banner-img {
@@ -35,5 +35,17 @@ a:link {
   list-style: none;
   margin: 1em;
   padding: 0.5em;
+  color: black;
+}
+
+.body-class {
+  color: orange;
+}
+
+.f_test_one {
+  color: #005aff;
+}
+
+.class_one .class_two {
   color: black;
 }

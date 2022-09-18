@@ -11,11 +11,9 @@
     @return $light-green
 }
 
-@function safe-font($size) {
-    @if $size < 1 {
-        @error "font too small"
-    }
-    @return $size
+@function invert($color, $amount: 100%) {
+    $inverse: change-color($color, $hue: hue($color) + 180);
+    @return mix($inverse, $color, $amount);
 }
 
 @mixin blue-text {    
@@ -38,7 +36,6 @@ p {
     }
 
 }
-
 
 .paragraph {
     @include blue-text;
@@ -78,3 +75,18 @@ a:link{
     padding: 0.2em;
     margin: 0.5em;
 }
+
+.body-class {
+    color: $myOrange;
+}
+
+.f_test_one {
+    color: invert($myOrange)
+}
+
+.class_one {
+    & .class_two {
+        color: $myBlack;
+    }
+}
+
